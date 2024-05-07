@@ -1,5 +1,6 @@
 import { FetchArgs } from "@reduxjs/toolkit/query";
 import { TAPIMethods, TGetModuleReturn } from "../index.types";
+import { CURRENCY_SYMBOL_MAP } from "./currency-symbol-map";
 
 export const replaceStringField = (
   text: string,
@@ -48,4 +49,53 @@ export const getModule = (module: string, method: TAPIMethods) => {
     console.log({ body, url, method });
     return { body, url, method } as FetchArgs;
   };
+};
+
+export const formatText = (text?: string) => {
+  return text
+    ? text
+        ?.split(" ")
+        ?.map(
+          (item) =>
+            `${item?.charAt(0)?.toUpperCase()}${item
+              ?.substring(1)
+              ?.toLowerCase()}`
+        )
+        .join(" ")
+    : "";
+};
+
+export const displaySalary = (
+  minSalary: number | null,
+  maxSalary: number | null,
+  currency: string | null
+) => {
+  const minSalaryExists = minSalary || minSalary === 0;
+  const maxSalaryExists = minSalary || minSalary === 0;
+  const salary = `${
+    CURRENCY_SYMBOL_MAP?.[currency || "INR"] //providing inr as default
+  }${
+    minSalaryExists && maxSalaryExists
+      ? `${minSalary} - ${maxSalary}`
+      : minSalaryExists
+      ? minSalary.toString()
+      : maxSalary?.toString()
+  }`;
+  return salary;
+};
+
+export const displayExperience = (
+  minExperience: number | null,
+  maxExperience: number | null
+) => {
+  const minExperienceExists = minExperience || minExperience === 0;
+  const maxExperienceExists = minExperience || minExperience === 0;
+  const experience = `${
+    minExperienceExists && maxExperienceExists
+      ? `${minExperience} - ${maxExperience}`
+      : minExperienceExists
+      ? minExperience.toString()
+      : maxExperience?.toString()
+  } years`;
+  return experience;
 };

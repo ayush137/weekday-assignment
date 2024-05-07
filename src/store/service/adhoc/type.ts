@@ -1,10 +1,6 @@
-export type TGetSampleJdJSONBody = {
+export type TGetSampleJdJSONPayload = {
   limit: number;
   offset: number;
-};
-
-export type TGetSampleJdJSONPayload = {
-  body: TGetSampleJdJSONBody;
 };
 
 export type TGetSampleJdJSONResponse = {
@@ -18,7 +14,7 @@ export type TJObDetail = {
   jobDetailsFromCompany: string | null;
   maxJdSalary: number | null;
   minJdSalary: number | null;
-  salaryCurrencyCode: "USD" | "INR" | null;
+  salaryCurrencyCode: string | "INR" | null;
   location: string | null;
   minExp: number | null;
   maxExp: number | null;

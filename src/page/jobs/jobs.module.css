@@ -1,0 +1,120 @@
+.job-card {
+  border-radius: 20px !important;
+  transition: all 0.1s ease-in-out;
+  padding: 20px 15px 10px;
+  width: 305px !important;
+}
+
+.job-card:hover {
+  transform: scale(1.01);
+}
+
+.job-card .logo {
+  height: 30px;
+  width: 30px;
+  overflow: hidden;
+  border-radius: 100px;
+  border: 0.5px solid grey;
+}
+
+.job-card h3 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+  color: #8b8b8b;
+}
+
+.job-card h2 {
+  font-size: 14px;
+  line-height: 1.5px;
+  font-weight: 400;
+}
+
+.location {
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.primary-details {
+  display: flex;
+  gap: 5px;
+  margin-top: 13px;
+}
+
+.salary-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  margin: 8px 0px;
+  color: #4d596a;
+}
+
+.about-wrapper {
+  height: 250px;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    rgb(255, 255, 255),
+    rgb(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.about-wrapper-p {
+  height: 250px;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    rgb(255, 255, 255),
+    rgb(255 255 255, 0.4),
+    rgba(255, 255, 255, 0)
+  );
+  margin-top: 8px;
+}
+
+.jd-about {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.jd-description {
+  white-space: pre-wrap;
+  font-size: 14px;
+}
+
+.view-job {
+  position: relative;
+  top: -20px;
+  margin-bottom: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.jd-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400;
+}
+
+.jd-modal > div {
+  width: 500px;
+  margin: auto;
+  padding: 15px;
+}
+
+.jobcard-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1440px;
+  margin: auto;
+}
+
+.button-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

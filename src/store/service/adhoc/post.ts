@@ -9,7 +9,8 @@ export const AdhocAPISlice = apiSlice.injectEndpoints({
       TGetSampleJdJSONResponse,
       TGetSampleJdJSONPayload
     >({
-      query: ({ body }) => module({ body, subModule: "getSampleJdJSON" }),
+      query: ({ limit, offset }) =>
+        module({ body: { limit, offset }, subModule: "getSampleJdJSON" }),
       serializeQueryArgs: ({ endpointName }) => {
         return endpointName;
       },
@@ -17,7 +18,7 @@ export const AdhocAPISlice = apiSlice.injectEndpoints({
         currentCache.jdList.push(...newItems.jdList);
       },
       forceRefetch({ currentArg, previousArg }) {
-        return currentArg?.body.offset !== previousArg?.body.offset;
+        return currentArg?.offset !== previousArg?.offset;
       },
     }),
   }),
