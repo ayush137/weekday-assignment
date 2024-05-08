@@ -1,24 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useGetSampleJdJSONQuery } from "../../store/service/adhoc/post";
 import JobCard from "./components/JobCard";
 import styles from "./jobs.module.css";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
 const Jobs = () => {
+  const LIMIT = 12;
+  const { isIntersecting, observer, observerRef } = useIntersectionObserver();
   const [offset, setOffset] = useState(0);
   const { data, isUninitialized, isLoading } = useGetSampleJdJSONQuery({
     limit: 12,
     offset: offset,
   });
-  console.log(data);
-  //   setInterval(() => setOffset((pre) => pre + 10), 5000);
+  const hasMore = (data?.totalCount || 0) >= offset + LIMIT;
 
-  return (
-    <div className={styles["jobcard-wrapper"]}>
-      {data?.jdList?.map((item) => (
-        <JobCard jobDetail={item} />
-      ))}
-    </div>
-  );
+  useEffect(() => {
+    if (isIntersecting && hasMore) {
+      setOffset((pre) => pre + LIMIT);
+      observer?.disconnect();
+    }
+  }, [isIntersecting]);
+
+  const jobList = useMemo(() => {
+    return data?.jdList?.map((item, index) => {
+      console.log(
+        "index === data?.jdList?.length - 4",
+        index === data?.jdList?.length - 4 ? observerRef : undefined
+      );
+      return (
+        <JobCard
+          jobDetail={item}
+          reference={
+            index === data?.jdList?.length - 4 ? observerRef : undefined
+          }
+        />
+      );
+    });
+  }, [data?.jdList?.length]);
+
+  return <div className={styles["jobcard-wrapper"]}>{jobList}</div>;
 };
 
 export default Jobs;

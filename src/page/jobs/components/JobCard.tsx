@@ -15,14 +15,15 @@ import CustomButton from "../../../common/button/CustomButton";
 
 const JobCard: TReactProps<TJobCardProps> = (props) => {
   const [errorImage, setErrorImage] = useState(false);
-  const { jobDetail } = props;
+  const { jobDetail, reference } = props;
+  console.log(reference);
   const salaryExists =
     jobDetail?.minJdSalary ||
     jobDetail?.minJdSalary === 0 ||
     jobDetail?.maxJdSalary ||
     jobDetail?.maxJdSalary === 0;
   return (
-    <Paper elevation={1} className={styles["job-card"]}>
+    <Paper elevation={1} className={styles["job-card"]} ref={reference}>
       <Tag>{`⏳ Posted 10 days ago`}</Tag>
       <div className={styles["primary-details"]}>
         <div className={styles["logo"]}>
