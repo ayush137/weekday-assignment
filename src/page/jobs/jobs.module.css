@@ -1,14 +1,18 @@
-.job-card {
-  border-radius: 20px !important;
-  transition: all 0.1s ease-in-out;
-  padding: 20px 15px 10px;
-  width: 305px !important;
-}
 .job-card-skeleton {
   border-radius: 20px !important;
   padding: 20px 15px 10px;
   width: 305px !important;
   height: 547px;
+}
+
+.job-card {
+  border-radius: 20px !important;
+  transition: all 0.1s ease-in-out;
+  padding: 20px 15px 10px;
+  width: 305px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .job-card:hover {
@@ -115,8 +119,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  max-width: 1440px;
+  max-width: 1400px;
   margin: auto;
+  padding: 7px 7px;
 }
 
 .button-wrap {
@@ -124,4 +129,15 @@
   flex-direction: column;
   gap: 10px;
   padding-top: 13px;
+}
+
+.job-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin: 10px 0px 32px 0px;
+  max-width: 1400px;
+  margin: auto;
+  padding: 10px 7px 32px;
 }

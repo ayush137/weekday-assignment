@@ -46,7 +46,6 @@ export const getModule = (module: string, method: TAPIMethods) => {
     if (query) {
       url = appendQuery(url, query);
     }
-    console.log({ body, url, method });
     return { body, url, method } as FetchArgs;
   };
 };

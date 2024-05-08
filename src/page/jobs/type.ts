@@ -8,3 +8,14 @@ export type TJobCardProps = {
 export type TJobModalProps = {
   jobDetails: string | null;
 };
+
+export type TJobFilter = {
+  experience: string | null;
+  location: string | null;
+  company: string | null;
+};
+
+export type TJObFilterProps = {
+  filter: TJobFilter;
+  setFilter: React.Dispatch<React.SetStateAction<TJobFilter>>;
+};

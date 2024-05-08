@@ -5,12 +5,10 @@ const useIntersectionObserver = () => {
   const [isIntersecting, setIntersecting] = useState(false);
 
   const observerRef = useCallback((node: HTMLDivElement | null) => {
-    console.log("hello");
     if (node) {
       const observer = new IntersectionObserver(
         ([entry]) => {
           setIntersecting(entry.isIntersecting);
-          console.log("hello");
         },
         {
           root: null,

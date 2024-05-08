@@ -1,30 +1,20 @@
-# React + TypeScript + Vite
+description: This project is demonstrating the implementation of infinite scroll using IntersectionObserver.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+tech-stack: Vite, React.js, Material UI, CSS, RTK Query, Typescript
 
-Currently, two official plugins are available:
+commands to run this code on your machine:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+step 1) npm
+step 2) npm run dev
 
-## Expanding the ESLint configuration
+Key Features:
+=> Infinity scroll
+=> Custom hooks
+=> Typescript implementation
+=> RTK Query
+=> Higher order components
+=> Debouce to reduce too many changes
+=> Clean code over commenting
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Suggestions:
+=> Client side filteration can cause malfunctioning in infinity scroll, would be better to use server side filteration

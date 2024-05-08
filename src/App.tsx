@@ -1,6 +1,7 @@
+import { lazy } from "react";
 import "./App.css";
 import IndexProvider from "./wrapper";
-import Jobs from "./page/jobs";
+const Jobs = lazy(() => import("./page/jobs/index"));
 
 function App() {
   return (
